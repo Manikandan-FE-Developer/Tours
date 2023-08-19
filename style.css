@@ -3,20 +3,18 @@ body{
 }
 header{
 	position: relative;
-	padding: 15px;
+	padding: 5px;
 	display: flex;
 	align-items: center;
 	background-color: cyan;
 	justify-content: space-between;
 	border-radius: 25px;
 }
-header .logo{
-	color: black;
-	position: relative;
-	font-size: 30px;
-	text-decoration: none;
-	font-weight: 800;
-	letter-spacing: 1px;
+header h1{
+	color: blue;
+	font-weight: bold;
+	letter-spacing: 3px;
+	margin-left: 10px;
 }
 header .nav a{
 	color: black;
@@ -24,10 +22,9 @@ header .nav a{
 	font-weight: 800;
 	letter-spacing: 1px;
 	padding: 2px 15px;
-	border-radius: 20px;
 }
 .nav a:hover{
-	color: white;
+	color: blue;
 }
 label{
 	display: none;
@@ -36,6 +33,12 @@ label{
 	z-index: 3;
 	display: none;
 }
+h2{
+	color: yellow;
+	padding-top: 40px;
+	text-align: center;
+	letter-spacing: 3px;
+}
 .container {
     position: relative;
     display: flex;
@@ -43,7 +46,7 @@ label{
     align-items: center;
     flex-wrap: wrap;
     gap: 100px 50px;
-    padding: 100px 50px;
+    padding: 50px 50px;
 }
 .container .card {
     position: relative;
@@ -100,7 +103,7 @@ label{
     height: 250px;
 }
 .container .card .content h2 {
-	margin-top: 1px;
+	margin-top: -35px;
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--clr);
@@ -157,8 +160,9 @@ label{
 		letter-spacing: 3px;
 	}
 	#check:checked ~ header .nav a:hover{
-		color: black;
-		background-color: white;
+		color: white;
+		background-color: blue;
+		border-radius: 25px;
 	}
 	#check:checked ~ header label .menu-btn{
 		display: none;
@@ -170,8 +174,10 @@ label{
 		margin-top: -40px;
 		margin-left: -65px;
 	}
-	header .logo{
-		font-size: 60px;
-		padding: 20px;
+	header h1{
+		font-size: 70px;
+	}
+	h2{
+		font-size: 40px;
 	}
 }
