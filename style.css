@@ -3,7 +3,6 @@ body{
 }
 header{
 	position: relative;
-	padding: 5px;
 	display: flex;
 	align-items: center;
 	background-color: cyan;
@@ -16,15 +15,38 @@ header h1{
 	letter-spacing: 3px;
 	margin-left: 10px;
 }
-header .nav a{
-	color: black;
-	text-decoration: none;
-	font-weight: 800;
-	letter-spacing: 1px;
-	padding: 2px 15px;
+.nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
 }
-.nav a:hover{
-	color: blue;
+.nav-item {
+  margin: 0 20px;
+}
+.nav-item a {
+  text-decoration: none;
+  color: black;
+  position: relative;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+.nav-item a:hover {
+  color: blue;
+}
+.nav-item a::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: blue;
+  transition: width 0.3s;
+}
+.nav-item a:hover::before {
+  width: 100%;
 }
 label{
 	display: none;
@@ -48,7 +70,7 @@ h2{
     gap: 100px 50px;
     padding: 50px 50px;
 }
-.container .card {
+.card {
     position: relative;
     display: flex;
     justify-content: center;
@@ -61,11 +83,11 @@ h2{
     transition: 0.5s;
     box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
 }
-.container .card:hover {
+.card:hover {
     height: 400px;
     cursor: pointer;
 }
-.container .card .img-box {
+.img-box {
     position: absolute;
     top: 20px;
     width: 300px;
@@ -75,12 +97,12 @@ h2{
     overflow: hidden;
     transition: 0.5s;
 }
-.container .card:hover .img-box {
+.card:hover .img-box {
     top: -100px;
     scale: 0.75;
     box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
 }
-.container .card .img-box img {
+.img-box img {
     position: absolute;
     top: 0;
     left: 0;
@@ -88,7 +110,7 @@ h2{
     height: 100%;
     object-fit: cover;
 }
-.container .card .content {
+.content {
     position: absolute;
     top: 252px;
     width: 100%;
@@ -98,20 +120,20 @@ h2{
     overflow: hidden;
     transition: 0.5s;
 }
-.container .card:hover .content {
+.card:hover .content {
     top: 130px;
     height: 250px;
 }
-.container .card .content h2 {
+.content h2 {
 	margin-top: -35px;
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--clr);
 }
-.container .card .content p {
+.content p {
     color: #333;
 }
-.container .card .content a {
+.content a {
     position: relative;
     top: 15px;
     display: inline-block;
@@ -121,11 +143,24 @@ h2{
     color: white;
     font-weight: 500;
 }
-.container .card .content a:hover {
+.content a:hover {
     opacity: 0.8;
 }
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    letter-spacing: 1px;
+}
 @media only screen and (max-width: 1000px){
-	.nav{
+	h1{
+		font-size: 70px;
+	}
+	h2{
+		font-size: 40px;
+	}
+	.navbar{
 		display: none;
 	}
 	label .close-btn{
@@ -139,7 +174,7 @@ h2{
 		font-size: 80px;
 		cursor: pointer;
 	}
-	#check:checked ~ header .nav{
+	#check:checked ~ header .navbar{
 		z-index: 2;
 		position: fixed;
 		top: 0;
@@ -153,16 +188,18 @@ h2{
 		background-color: cyan;
 		opacity: 70%;
 	}
-	#check:checked ~ header .nav a{
+	#check:checked ~ header .nav-list{
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+    }
+   	#check:checked ~ header .nav-item{
+   		margin-top: 80px;
+	}
+	#check:checked ~ header .navbar a{
 		font-weight: 700;
 		font-size: 60px;
-		margin-bottom: 100px;
 		letter-spacing: 3px;
-	}
-	#check:checked ~ header .nav a:hover{
-		color: white;
-		background-color: blue;
-		border-radius: 25px;
 	}
 	#check:checked ~ header label .menu-btn{
 		display: none;
@@ -174,10 +211,10 @@ h2{
 		margin-top: -40px;
 		margin-left: -65px;
 	}
-	header h1{
-		font-size: 70px;
-	}
-	h2{
-		font-size: 40px;
+	.nav-item a::before {
+		height: 5px;
+  	}
+	footer{
+		font-size: 30px;
 	}
 }
